@@ -151,11 +151,10 @@ void excluirElemento()
 		ultimo = NULL;
 		primeiro = NULL;
 	}
-	else {
-		if (primeiro->valor == valor) {
+	else if (primeiro->valor == valor) {
 			primeiro = primeiro->prox;
 			return;
-		}
+		
 	}
 }
 
