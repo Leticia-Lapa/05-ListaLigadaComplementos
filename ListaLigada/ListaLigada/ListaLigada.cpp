@@ -80,6 +80,7 @@ void inicializar()
 	}
 
 	primeiro = NULL;
+	ultimo = NULL;
 	cout << "Lista inicializada \n";
 
 }
@@ -139,7 +140,23 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	int valor;
+	NO* aux = primeiro;
+	NO* anterior = NULL;
 
+	cout << "Digite o numero que deseja excluir: ";
+	cin >> valor;
+
+	if (primeiro->valor == valor && ultimo->valor == valor) {
+		ultimo = NULL;
+		primeiro = NULL;
+	}
+	else {
+		if (primeiro->valor == valor) {
+			primeiro = primeiro->prox;
+			return;
+		}
+	}
 }
 
 void buscarElemento()
