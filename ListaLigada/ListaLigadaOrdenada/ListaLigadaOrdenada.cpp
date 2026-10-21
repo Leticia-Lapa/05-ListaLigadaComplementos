@@ -125,36 +125,33 @@ void inserirElemento()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
-	if (primeiro == NULL)
-	{
+	NO* aux = primeiro;
+	NO* anterior = NULL;
+
+	while (aux != NULL && aux->valor < novo->valor) {
+
+		anterior = aux;
+		aux = aux->prox;
+
+	}
+
+	if (aux != NULL && aux->valor == novo->valor) {
+
+		cout << "Esse numero ja existe na lista. " << endl;
+		free(novo);
+		return;
+
+	}else if(anterior == NULL) {
+
 		primeiro = novo;
+
+	}else {
+
+		anterior->prox = novo;
+
 	}
-	else
-	{
-		NO* aux = primeiro;
-		NO* anterior = NULL;
 
-		while (aux != NULL && aux->valor < novo->valor) {
-
-			anterior = aux;
-			aux = aux->prox;
-		}
-
-		if (aux != NULL && aux->valor == novo->valor) {
-			cout << "Esse numero ja existe na lista" << endl;
-			free(novo);
-			return;
-		}
-
-		if (anterior == NULL) {
-			primeiro = novo;
-		}
-		else {
-			anterior->prox = novo;
-		}
-
-		novo->prox = aux;
-	}
+	novo->prox = aux;
 }
 
 void excluirElemento()
