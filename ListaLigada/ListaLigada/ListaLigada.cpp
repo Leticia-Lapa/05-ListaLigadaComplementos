@@ -141,17 +141,20 @@ void inserirElemento()
 void excluirElemento()
 {
 	int valor;
-	NO* aux = primeiro;
-	NO* anterior = NULL;
 
 	cout << "Digite o numero que deseja excluir: ";
 	cin >> valor;
 
-	if (primeiro->valor == valor && ultimo->valor == valor) {
-		ultimo = NULL;
+	NO* aux = primeiro;
+	NO* anterior = NULL;
+
+	if (aux->valor == valor && ultimo->valor == valor) {
+		ultimo = NULL; 
 		primeiro = NULL;
-	}
-	else if (primeiro->valor == valor) {
+
+		free(aux);
+
+	}else if (primeiro->valor == valor) {
 			primeiro = primeiro->prox;
 			return;
 		
@@ -160,7 +163,25 @@ void excluirElemento()
 
 void buscarElemento()
 {
+	int valor;
+	cout << "Digite o numero que deseja buscar: ";
+	cin >> valor;
 
+	NO* aux = primeiro;
+
+	while (aux != NULL) {
+
+		if (aux->valor == valor) {
+
+			cout << "ELEMENTO ENCONTRADO. " << endl;
+			return;
+
+		}
+
+		aux = aux->prox;
+	}
+
+	cout << "ELEMENTO NAO ENCONTRADO. " << endl;
 }
 
 
