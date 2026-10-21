@@ -156,12 +156,36 @@ void inserirElemento()
 
 void excluirElemento()
 {
-
+	
 }
 
 void buscarElemento()
 {
+	int valor;
+	cout << "Digite o numero que deseja buscar: ";
+	cin >> valor;
 
+	NO* aux = primeiro;
+
+	while (aux != NULL) {
+
+		if (aux->valor == valor) {
+
+			cout << "ELEMENTO ENCONTRADO. " << endl;
+			return;
+
+		}
+		else if (aux->valor > valor) {
+
+			cout << "ELEMENTO NAO ENCONTRADO. " << endl;
+			return;
+
+		}
+
+		aux = aux->prox;
+	}
+
+	cout << "ELEMENTO NAO ENCONTRADO. " << endl;
 }
 
 
