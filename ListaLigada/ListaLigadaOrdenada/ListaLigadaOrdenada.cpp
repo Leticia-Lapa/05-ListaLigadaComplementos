@@ -176,18 +176,13 @@ void excluirElemento()
 		return;
 
 	}else if (anterior == NULL) {
-
 		primeiro = aux->prox;
-		free(aux);
-		return;
-
 	}else{
-
 		anterior->prox = aux->prox;
-		free(aux);
-		return;
-
 	}
+
+	free(aux);
+	cout << "Elemento excluido. " << endl;
 
 }
 
