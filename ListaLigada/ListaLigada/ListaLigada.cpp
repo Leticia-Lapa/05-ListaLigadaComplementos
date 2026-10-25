@@ -148,17 +148,34 @@ void excluirElemento()
 	NO* aux = primeiro;
 	NO* anterior = NULL;
 
-	if (aux->valor == valor && ultimo->valor == valor) {
-		ultimo = NULL; 
-		primeiro = NULL;
-
-		free(aux);
-
-	}else if (primeiro->valor == valor) {
-			primeiro = primeiro->prox;
-			return;
-		
+	if (primeiro == NULL) {
+		cout << "A lista esta vazia. " << endl;
+		return;
 	}
+
+	while (aux != NULL && aux->valor != valor) {
+		anterior = aux;
+		aux = aux->prox;
+	}
+
+	if (aux == NULL) {
+		cout << "Valor nao encontrado. " << endl;
+		return;
+
+	} else if (anterior == NULL) {
+		primeiro = aux->prox;
+	}
+	else {
+		anterior->prox = aux->prox;
+	}
+
+	if (aux == ultimo) {
+		ultimo = anterior;
+	}
+
+	free(aux);
+
+	cout << "Elemento excluido. " << endl;
 }
 
 void buscarElemento()
